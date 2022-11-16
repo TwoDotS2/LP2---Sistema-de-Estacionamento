@@ -1,55 +1,37 @@
 package imd.ufrn.edu.domain;
 
-import java.util.List;
 
-public class Apartamento {
-    private int numero;
+public class Apartamento extends Pessoa {
+	private int numApartamento;
     private String bloco;
-    private int andar;
-    private List<Pessoa> moradores;
-    private List<Vaga> vagas;
-
-    //Construtor Vazio
+    
     public Apartamento() {}
+    
+	public Apartamento(int numApartamento, String bloco, String nome) {
+		super(nome);
+		this.numApartamento = numApartamento;
+		this.bloco = bloco;
+	}
+	
+	public Apartamento(int numApartamento) {
+		this.numApartamento = numApartamento;
+	}
 
-    //Getters e Setters
-    public int getNumero() {
-        return numero;
-    }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getBloco() {
-        return bloco;
-    }
-
-    public void setBloco(String bloco) {
-        this.bloco = bloco;
-    }
-
-    public int getAndar() {
-        return andar;
-    }
-
-    public void setAndar(int andar) {
-        this.andar = andar;
-    }
-
-    public List<Pessoa> getMoradores() {
-        return moradores;
-    }
-
-    public void setMoradores(List<Pessoa> moradores) {
-        this.moradores = moradores;
-    }
-
-    public List<Vaga> getVagas() {
-        return vagas;
-    }
-
-    public void setVagas(List<Vaga> vagas) {
-        this.vagas = vagas;
-    }
+	public int getNumApartamentoo() {
+		return numApartamento;
+	}
+	public void setApartamento(int numApartamento) {
+		this.numApartamento = numApartamento;
+	}
+	public String getBloco() {
+		return bloco;
+	}
+	public void setBloco(String bloco) {
+		this.bloco = bloco;
+	}
+ 
+    
+    
+    
 }
