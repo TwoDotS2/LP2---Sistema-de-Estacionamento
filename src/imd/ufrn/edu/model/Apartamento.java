@@ -1,4 +1,4 @@
-package imd.ufrn.edu.domain;
+package imd.ufrn.edu.model;
 
 import java.util.List;
 
@@ -6,7 +6,9 @@ public class Apartamento {
     private int numero;
     private String bloco;
     private int andar;
-    private List<Pessoa> moradores;
+
+    private boolean estaOcupado;
+    private List<Pessoa> moradores; //Moradores do apartamento
     private List<Vaga> vagas;
 
     //Construtor Vazio

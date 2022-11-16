@@ -1,13 +1,16 @@
-package imd.ufrn.edu.domain;
+package imd.ufrn.edu.model;
+
+import java.util.UUID;
 
 public class Vaga {
+
+    private UUID uuid;
     private double largura;
     private double comprimento;
-    private String numero;
+    private int numeroDaVaga;
+
     private Veiculo veiculo;
 
-
-    //
     public double getLargura() {
         return largura;
     }
@@ -24,11 +27,9 @@ public class Vaga {
         this.comprimento = comprimento;
     }
 
-    public String getNumero() {
-        return numero;
-    }
+    public int getNumeroDaVaga() { return numeroDaVaga; }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumero(int numero) {
+        this.numeroDaVaga = numero;
     }
 }
