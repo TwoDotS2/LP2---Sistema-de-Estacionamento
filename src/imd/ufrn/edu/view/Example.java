@@ -20,7 +20,7 @@ public class Example {
     	Pessoa prop = new Proprietario();
     	prop.setNome("Arthur Silva");
     	prop.setCpf("081.917.954-00");
-    	prop.setDatanascimento(null);
+    	prop.setDatanascimento(1990,9,23);
     	prop.setTelefone("(84)99174-6246");
     	
     	veiculo.setCorCarro("Preto");

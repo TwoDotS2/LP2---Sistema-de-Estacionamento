@@ -50,8 +50,8 @@ public class Pessoa {
 		return datanascimento;
 	}
 
-	public void setDatanascimento(LocalDate datanascimento) {
-		this.datanascimento = datanascimento;
+	public void setDatanascimento(int ano, int mes, int dia) {
+		this.datanascimento = LocalDate.of(ano, mes, dia);
 	}
 
   	
