@@ -1,9 +1,12 @@
 package imd.ufrn.edu.domain;
 
+import java.time.LocalDate;
+
 public class Pessoa {
     private String nome;
     private String cpf;
     private String telefone;
+    private LocalDate datanascimento;
 
   
 
@@ -13,6 +16,7 @@ public class Pessoa {
     	this.telefone = telefone;
 		this.nome = nome;
 		this.cpf = cpf;
+		
 	}
     public Pessoa(String nome) {
     	this.nome = nome;
@@ -42,5 +46,15 @@ public class Pessoa {
   		this.telefone = telefone;
   	}
 
+	public LocalDate getDatanascimento() {
+		return datanascimento;
+	}
+
+	public void setDatanascimento(LocalDate datanascimento) {
+		this.datanascimento = datanascimento;
+	}
+
+  	
+  	
 
 }

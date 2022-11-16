@@ -1,21 +1,22 @@
 package imd.ufrn.edu.domain;
 
-public class Vaga extends Apartamento {
+public class Vaga{
 	
     private double largura;
     private double comprimento;
     private Veiculo veiculo;
     private boolean estaVazia;
+    private String local;
 	
     public Vaga() {
 	
 	}
-	public Vaga(double largura, double comprimento, Veiculo veiculo, boolean estaVazia, int apartamanto) {
-		super(apartamanto);
+	public Vaga(double largura, double comprimento, Veiculo veiculo, boolean estaVazia, String local) {
 		this.largura = largura;
 		this.comprimento = comprimento;
 		this.veiculo = veiculo;
 		this.estaVazia = estaVazia;
+		this.local = local;
 	}
 	
 	public double getLargura() {
@@ -42,6 +43,14 @@ public class Vaga extends Apartamento {
 	public void setEstaVazia(boolean estaVazia) {
 		this.estaVazia = estaVazia;
 	}
+	public String getLocal() {
+		return local;
+	}
+	public void setLocal(String local) {
+		this.local = local;
+	}
+	
+	
     
 	
     
