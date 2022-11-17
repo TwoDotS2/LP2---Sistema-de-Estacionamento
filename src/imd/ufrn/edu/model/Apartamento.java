@@ -100,8 +100,6 @@ public class Apartamento {
 				"numero=" + numero +
 				", bloco='" + bloco + '\'' +
 				", andar=" + andar +
-				", moradores=" + moradores.toString() +
-				", vagaEstacionamento=" + vagaEstacionamento.toString() +
 				'}';
 	}
 }

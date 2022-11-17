@@ -3,11 +3,10 @@ package imd.ufrn.edu.controller;
 import imd.ufrn.edu.model.Apartamento;
 
 import java.util.Hashtable;
-import java.util.Map;
 
 public class Torre {
     private String nome;
-    private Map<Integer, Hashtable<Integer, Apartamento>> torre;
+    private Hashtable<Integer, Hashtable<Integer, Apartamento>> torre;
     private int andares;
     public Torre() {}
 
@@ -53,7 +52,7 @@ public class Torre {
         this.andares = andares;
     }
 
-    public Map<Integer, Hashtable<Integer, Apartamento>> getTorre() {
+    public Hashtable<Integer, Hashtable<Integer, Apartamento>> getTorre() {
         return torre;
     }
 
@@ -63,6 +62,6 @@ public class Torre {
                 "nome='" + nome + '\'' +
                 ", torre=" + torre.values().toString() +
                 ", andares=" + andares +
-                '}';
+                "}\n";
     }
 }

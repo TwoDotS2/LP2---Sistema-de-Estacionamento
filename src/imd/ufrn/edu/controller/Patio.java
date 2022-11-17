@@ -10,6 +10,10 @@ public class Patio {
 
     public Patio(){}
 
+    public Hashtable<Integer, Vaga> getVagas() {
+        return vagas;
+    }
+
     public void gerarPatio(int numeroTotalDeVagas){
         vagas = new Hashtable<Integer, Vaga>(numeroTotalDeVagas);
 

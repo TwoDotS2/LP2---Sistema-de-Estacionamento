@@ -36,7 +36,7 @@ public class Condominio {
 	 */
 	public void gerarCondominio(int quantidadeDeTorres, int andaresPorTorre, int apartamentosPorAndar, int vagasParaCarro, int vagasParaMoto){
 		//Gerar torres do projeto
-		torres = new Hashtable<String, Torre>(torres);
+		torres = new Hashtable<String, Torre>(quantidadeDeTorres);
 		Torre placeHolderTorre;
 
 		for (int i = 0; i < quantidadeDeTorres; i++) {
@@ -60,5 +60,20 @@ public class Condominio {
 			patioMotos.gerarPatio(numeroTotaldeVagas * vagasParaMoto);
 		}
 
+	}
+
+	public Patio getPatioCarros() {
+		return patioCarros;
+	}
+
+	public Patio getPatioMotos() {
+		return patioMotos;
+	}
+
+	public Hashtable<String, Torre> getTorres() {
+		return torres;
+	}
+	public Torre getTorrePorNome(String nomeDaTorre) {
+		return torres.get(nomeDaTorre);
 	}
 }

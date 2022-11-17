@@ -1,7 +1,12 @@
 package imd.ufrn.edu.view;
 
 import imd.ufrn.edu.controller.Condominio;
+import imd.ufrn.edu.controller.Patio;
+import imd.ufrn.edu.controller.Torre;
+import imd.ufrn.edu.model.Apartamento;
+import imd.ufrn.edu.model.Vaga;
 
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class MenusCadastrais {
@@ -41,14 +46,15 @@ public class MenusCadastrais {
         short aux;
         String str;
 
-        //Uma função para deixar a leitura clean
+        //Exibir cabeçalho
+        cabecalho();
 
         System.out.println("Quantas torres tem o condomínio?");
             aux = scanner.nextShort();
             torres = setValorPadrao(aux, torres, 1, " torre(s).");
 
 
-        System.out.println("Quantos andares de apartamento tem cada torre?");
+        System.out.println("Quantos andares tem cada torre?");
             aux = scanner.nextShort();
             andaresPorTorre = setValorPadrao(aux, andaresPorTorre, 1, " andar(es).");
 
@@ -59,11 +65,13 @@ public class MenusCadastrais {
 
 
         System.out.println("Há pátio separado para carros e motos? (S/N)");
+            scanner.nextLine();
             str = scanner.next();
-            if (str == "S") vagaMotoCarro = true;
-            else if (str == "N") vagaMotoCarro = false;
+
+            if (str.equals("S")) vagaMotoCarro = true;
+            else if (str.equals("N")) vagaMotoCarro = false;
             else {
-                System.out.println("Exceção...s");
+                System.out.println("Exceção... " + str);
             }
 
         if (vagaMotoCarro) {
@@ -85,6 +93,8 @@ public class MenusCadastrais {
             vagasParaCarro,
             vagasParaMoto
         );
+
+        rodape();
     }
 
     //Funcão auxiliar para deixar a leitura do código mais limpa
@@ -98,6 +108,33 @@ public class MenusCadastrais {
 
         return valorInserido;
     }
+
+    public void exibirPatioCarros(Condominio condominio){
+        Hashtable<Integer, Vaga> vagasDoPatio = condominio.getPatioCarros().getVagas();
+
+        cabecalho();
+        System.out.println("\nVagas do patio:");
+
+        for (Vaga vaga: vagasDoPatio.values()) {
+            System.out.println(vaga.toString());
+        }
+
+        rodape();
+    }
+    public void exibirTorres(Condominio condominio){
+        Hashtable<String, Torre> torres = condominio.getTorres();
+
+        cabecalho();
+        System.out.println("\nTodos os apartamentos:");
+
+        for (Torre torre: torres.values()) {
+            System.out.println(torre.toString());
+        }
+
+        rodape();
+
+    }
+
 
     public void cadastrarMorador(Condominio condominio) {
 
