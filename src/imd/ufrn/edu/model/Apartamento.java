@@ -1,8 +1,6 @@
 package imd.ufrn.edu.model;
 
 
-import imd.ufrn.edu.domain.Proprietario;
-
 import java.util.List;
 
 public class Apartamento {

@@ -5,15 +5,15 @@ import java.util.UUID;
 public class Vaga {
 
     private static UUID uuid;
-    private String id;
-
+    private int numero;
     private Veiculo veiculo;
+    private String complemento;
 
 
-    public String getId() { return id; }
+    public int getNumero() { return numero; }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public Veiculo getVeiculo() {
@@ -24,5 +24,11 @@ public class Vaga {
         this.veiculo = veiculo;
     }
 
+    public String getComplemento() {
+        return complemento;
+    }
 
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
 }
