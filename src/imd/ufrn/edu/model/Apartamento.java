@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Apartamento {
 	private int numero;
-    private String bloco;
     private int andar;
 
     private boolean estaOcupado;
@@ -24,7 +23,6 @@ public class Apartamento {
     
 	public Apartamento(int numApartamento, String bloco, Proprietario prop, Double taxaCondominio, Vaga vagaEstacionamento) {
 		this.numero = numApartamento;
-		this.bloco = bloco;
 		this.prop = prop;
 		this.taxaCondominio = taxaCondominio;
 		this.vagaEstacionamento = vagaEstacionamento;
@@ -42,13 +40,6 @@ public class Apartamento {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
-	public String getBloco() {
-		return bloco;
-	}
-	public void setBloco(String bloco) {
-		this.bloco = bloco;
-	}
 
     public int getAndar() {
         return andar;
@@ -98,7 +89,6 @@ public class Apartamento {
 	public String toString() {
 		return "Apartamento{" +
 				"numero=" + numero +
-				", bloco='" + bloco + '\'' +
 				", andar=" + andar +
 				'}';
 	}

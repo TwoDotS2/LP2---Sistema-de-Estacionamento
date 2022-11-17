@@ -76,4 +76,5 @@ public class Condominio {
 	public Torre getTorrePorNome(String nomeDaTorre) {
 		return torres.get(nomeDaTorre);
 	}
+
 }

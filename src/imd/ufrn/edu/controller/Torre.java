@@ -6,31 +6,25 @@ import java.util.Hashtable;
 
 public class Torre {
     private String nome;
-    private Hashtable<Integer, Hashtable<Integer, Apartamento>> torre;
+    private Hashtable<Integer, Apartamento> torre;
     private int andares;
     public Torre() {}
 
     public void gerarTorre(int andares, int apartamentosPorAndar){
-        torre = new Hashtable<Integer, Hashtable<Integer, Apartamento>>(andares);
+        torre = new Hashtable<Integer, Apartamento>(andares);
 
         for (Integer i = 1; i <= andares; i++){
-            torre.put(i,  gerarAndar( andares, apartamentosPorAndar ) );
+            torre.put(i,  gerarApartamentos(i,  apartamentosPorAndar) );
         }
     }
-    private  Hashtable<Integer, Apartamento> gerarAndar(int andarAtual, int apartamentosPorAndar){
-        Hashtable<Integer, Apartamento> andar = new Hashtable<Integer, Apartamento>();
 
-        for(Integer i = 1; i <= apartamentosPorAndar; i++)
-            andar.put(
-                    i, gerarApartamento(andarAtual, i, apartamentosPorAndar)
-            );
-
-        return andar;
-    }
-    private Apartamento gerarApartamento(int andarAtual, Integer index, int apartamentosPorAndar){
+    private Apartamento gerarApartamentos(int andarAtual, int apartamentosPorAndar){
         Apartamento apt = new Apartamento();
+
+        for (int i = 0; i < apartamentosPorAndar; i++) {
             apt.setAndar(andarAtual);
-            apt.setNumero(index);
+            apt.setNumero(i);
+        }
 
         return apt;
     }
@@ -52,16 +46,16 @@ public class Torre {
         this.andares = andares;
     }
 
-    public Hashtable<Integer, Hashtable<Integer, Apartamento>> getTorre() {
+    public Hashtable<Integer, Apartamento> getAndar() {
         return torre;
     }
 
     @Override
     public String toString() {
         return "Torre{" +
-                "nome='" + nome + '\'' +
-                ", torre=" + torre.values().toString() +
-                ", andares=" + andares +
+                "\nnome='" + nome + '\'' +
+                ",\n torre=" + torre.values().toString() +
+                ",\n andares=" + andares +
                 "}\n";
     }
 }

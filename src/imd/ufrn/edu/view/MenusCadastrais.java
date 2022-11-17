@@ -20,18 +20,10 @@ public class MenusCadastrais {
     }
 
     public void rodape(){
-        System.out.println("---------****************************************---------------");
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("--------****************************************--------------");
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("\n\n");
     }
-
-//    public void menuCriarCondominio(/*Privilégio do usuário*/){
-////        if(/*Gestor*/){
-////            System.out.println(" 1 - Criar novo condomínio");
-////            System.out.println(" 2 - Selecionar condomínio");
-////        }
-////        if(/*Cliente*/)
-//        System.out.println(" 1 - Selecionar condomínio já existente");
-//    }
 
     //2- Tela inicial de criação de projeto de condomínio
     public void menuCriarProjetoDeCondominio(Condominio condominio) {
@@ -84,7 +76,6 @@ public class MenusCadastrais {
             aux = scanner.nextShort();
             vagasParaCarro = setValorPadrao(aux, vagasParaCarro, 1, " vaga(s) de carro(s) por apt.");
 
-
         // Gerar condominio
         condominio.gerarCondominio(
             torres,
@@ -121,14 +112,15 @@ public class MenusCadastrais {
 
         rodape();
     }
+
     public void exibirTorres(Condominio condominio){
+
         Hashtable<String, Torre> torres = condominio.getTorres();
+        System.out.println("Todos os apartamentos:\n");
 
-        cabecalho();
-        System.out.println("\nTodos os apartamentos:");
 
-        for (Torre torre: torres.values()) {
-            System.out.println(torre.toString());
+        for (int i = 1; i <= ) {
+            System.out.println();
         }
 
         rodape();
@@ -147,4 +139,7 @@ public class MenusCadastrais {
 
     }
 
+    public void menuInicial(Condominio condominio){
+
+    }
 }
