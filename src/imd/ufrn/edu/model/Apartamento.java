@@ -1,10 +1,10 @@
 package imd.ufrn.edu.model;
 
-import java.util.List;
 
 public class Apartamento {
-    private int numero;
+	private int numApartamento;
     private String bloco;
+<<<<<<< HEAD:src/imd/ufrn/edu/model/Apartamento.java
     private int andar;
 
     private boolean estaOcupado;
@@ -12,46 +12,68 @@ public class Apartamento {
     private List<Vaga> vagas;
 
     //Construtor Vazio
+=======
+    private Proprietario prop;
+    private Double taxaCondominio;
+    private Vaga vagaEstacionamento;
+    
+>>>>>>> 178132f501dcf1a1a7eb4f4bd574790435bcabf9:src/imd/ufrn/edu/domain/Apartamento.java
     public Apartamento() {}
+    
+	public Apartamento(int numApartamento, String bloco, Proprietario prop, Double taxaCondominio, Vaga vagaEstacionamento) {
+		this.numApartamento = numApartamento;
+		this.bloco = bloco;
+		this.prop = prop;
+		this.taxaCondominio = taxaCondominio;
+		this.vagaEstacionamento = vagaEstacionamento;
+	}
+	
+	public Apartamento(int numApartamento) {
+		this.numApartamento = numApartamento;
+	}
 
-    //Getters e Setters
-    public int getNumero() {
-        return numero;
-    }
+	public String getBloco() {
+		return bloco;
+	}
+	public void setBloco(String bloco) {
+		this.bloco = bloco;
+	}
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+	public int getNumApartamento() {
+		return numApartamento;
+	}
 
-    public String getBloco() {
-        return bloco;
-    }
+	public void setNumApartamento(int numApartamento) {
+		this.numApartamento = numApartamento;
+	}
 
-    public void setBloco(String bloco) {
-        this.bloco = bloco;
-    }
+	public Proprietario getProp() {
+		return prop;
+	}
 
-    public int getAndar() {
-        return andar;
-    }
+	public void setProp(Proprietario prop) {
+		this.prop = prop;
+	}
 
-    public void setAndar(int andar) {
-        this.andar = andar;
-    }
+	public Double getTaxaCondominio() {
+		return taxaCondominio;
+	}
 
-    public List<Pessoa> getMoradores() {
-        return moradores;
-    }
+	public void setTaxaCondominio(Double taxaCondominio) {
+		this.taxaCondominio = taxaCondominio;
+	}
 
-    public void setMoradores(List<Pessoa> moradores) {
-        this.moradores = moradores;
-    }
+	public Vaga getVagaEstacionamento() {
+		return vagaEstacionamento;
+	}
 
-    public List<Vaga> getVagas() {
-        return vagas;
-    }
+	public void setVagaEstacionamento(Vaga vagaEstacionamento) {
+		this.vagaEstacionamento = vagaEstacionamento;
+	}
 
-    public void setVagas(List<Vaga> vagas) {
-        this.vagas = vagas;
-    }
+	
+ 
+    
+    
+    
 }

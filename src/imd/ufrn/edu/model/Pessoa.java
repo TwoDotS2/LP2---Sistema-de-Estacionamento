@@ -1,13 +1,28 @@
 package imd.ufrn.edu.model;
 
+import java.time.LocalDate;
+
 public class Pessoa {
     private String nome;
     private String cpf;
-    private boolean ehProprietario;
+    private String telefone;
+    private LocalDate datanascimento;
 
-    public Pessoa() {}
+  
 
-    public String getNome() {
+	public Pessoa() {}
+    
+    public Pessoa(String nome, String cpf, String telefone) {
+    	this.telefone = telefone;
+		this.nome = nome;
+		this.cpf = cpf;
+		
+	}
+    public Pessoa(String nome) {
+    	this.nome = nome;
+    }
+
+	public String getNome() {
         return nome;
     }
 
@@ -22,12 +37,24 @@ public class Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    
+    public String getTelefone() {
+  		return telefone;
+  	}
 
-    public boolean isEhProprietario() {
-        return ehProprietario;
-    }
+  	public void setTelefone(String telefone) {
+  		this.telefone = telefone;
+  	}
 
-    public void setEhProprietario(boolean ehProprietario) {
-        this.ehProprietario = ehProprietario;
-    }
+	public LocalDate getDatanascimento() {
+		return datanascimento;
+	}
+
+	public void setDatanascimento(int ano, int mes, int dia) {
+		this.datanascimento = LocalDate.of(ano, mes, dia);
+	}
+
+  	
+  	
+
 }
