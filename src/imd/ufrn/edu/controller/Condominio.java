@@ -4,17 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import imd.ufrn.edu.model.Apartamento;
+import imd.ufrn.edu.model.Patio;
 import imd.ufrn.edu.model.Pessoa;
 import imd.ufrn.edu.model.Vaga;
 
 public class Condominio {
-private List<Apartamento> apartamentos;
-private List<Pessoa> moradores;
+	private List<Apartamento> apartamentos;
+	private List<Pessoa> moradores;
+
+	private Patio patioCarros;
+
+	private Patio patioMotos;
 	
 	public void cadastrarApartamento(Apartamento apto) {
 		if(apartamentos == null) {
 			apartamentos = new ArrayList<Apartamento>();
 		}
+
 		apartamentos.add(apto);
 	}
 	
@@ -31,5 +37,9 @@ private List<Pessoa> moradores;
 	
 	public List<Pessoa> listarMoradores() {
 		return moradores;
+	}
+
+	public void gerarCondominio(short torres, short andaresPorTorre, short apartamentosPorAndar, short vagasParaCarro, short vagasParaMoto){
+
 	}
 }
