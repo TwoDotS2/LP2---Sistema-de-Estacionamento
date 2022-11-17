@@ -1,5 +1,6 @@
 package imd.ufrn.edu.view;
 import imd.ufrn.edu.controller.Condominio;
+import imd.ufrn.edu.model.Vaga;
 import imd.ufrn.edu.model.Proprietario;
 import imd.ufrn.edu.model.*;
 
@@ -34,8 +35,6 @@ public class Aplicacao {
     	((Proprietario)prop).setApto(apto);
     	apto.setTaxaCondominio(250.0);
     	apto.setVagaEstacionamento(vaga);
-    	
-    	metropole.cadastrarApartamento(apto);
     	
     }
 }

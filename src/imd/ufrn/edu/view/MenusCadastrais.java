@@ -29,42 +29,34 @@ public class MenusCadastrais {
 //    }
 
     //2- Tela inicial de criação de projeto de condomínio
-    public void menuCriarProjetoDeCondominio(Condominio condominio){
+    public void menuCriarProjetoDeCondominio(Condominio condominio) {
         int torres = 1;
-        int andaresPorTorre;
-        int apartamentosPorAndar;
+        int andaresPorTorre = 5;
+        int apartamentosPorAndar = 4;
         int vagasParaCarro = 1;
         int vagasParaMoto = 1;
-        int totalDeVagasCarro; //Total de vagas do condominio para carros
-        int totalDeVagasMoto; //Total de vagas do condominio para motos
         boolean vagaMotoCarro = false; //Variavel para saber se há vagas separadas para moto e carro
 
         //Variáveis para auxilicar para no tratamento de exceção
-        short aux; String str;
+        short aux;
+        String str;
 
+        //Uma função para deixar a leitura clean
 
         System.out.println("Quantas torres tem o condomínio?");
             aux = scanner.nextShort();
-            if (aux < 1){
-                System.out.println("Valor inválido.");
-                System.out.println("Valor padrão configurado: 1 torre.");
-            }
+            torres = setValorPadrao(aux, torres, 1, " torre(s).");
+
 
         System.out.println("Quantos andares de apartamento tem cada torre?");
             aux = scanner.nextShort();
-            if (aux < 1){
-                andaresPorTorre = 10;
-                System.out.println("Valor inválido.");
-                System.out.println("Valor padrão configurado: 10 andares.");
-            }
+            andaresPorTorre = setValorPadrao(aux, andaresPorTorre, 1, " andar(es).");
+
 
         System.out.println("Quantos apartamentos tem por andar?");
             aux = scanner.nextShort();
-            if (aux < 1){
-                apartamentosPorAndar = 4;
-                System.out.println("Valor inválido.");
-                System.out.println("Valor padrão configurado: 4 apartamentos");
-            }
+            apartamentosPorAndar = setValorPadrao(aux, apartamentosPorAndar, 1, " apartamento(s).");
+
 
         System.out.println("Há pátio separado para carros e motos? (S/N)");
             str = scanner.next();
@@ -74,32 +66,37 @@ public class MenusCadastrais {
                 System.out.println("Exceção...s");
             }
 
-        if(vagaMotoCarro) {
+        if (vagaMotoCarro) {
             System.out.println("Quantas vagas há para moto por apt.?");
                 aux = scanner.nextShort();
-                if (aux < 1){
-                    vagasParaMoto = 1;
-                    System.out.println("Valor inválido.");
-                    System.out.println("Valor padrão configurado: 1 vaga de moto por apt.");
-                }
-
-            System.out.println("Quantas vagas há para carro por apt.?");
-                aux = scanner.nextShort();
-                if (aux < 1){
-                    vagasParaCarro = 1;
-                    System.out.println("Valor inválido.");
-                    System.out.println("Valor padrão configurado: 1 vaga de carro por apt.");
-                }
-        } else {
-            System.out.println("Quantas vagas há para carro (De 1 a quanto)?");
-            aux = scanner.nextShort();
-            if (aux < 1) {
-                vagasParaCarro = 1;
-                System.out.println("Valor inválido.");
-                System.out.println("Valor padrão configurado: 1 vaga de carro por apt.");
-            }
+                vagasParaMoto = setValorPadrao(aux, vagasParaMoto, 0, " vaga(s) de moto por apt.");
         }
 
+        System.out.println("Quantas vagas há para carro por apt.?");
+            aux = scanner.nextShort();
+            vagasParaCarro = setValorPadrao(aux, vagasParaCarro, 1, " vaga(s) de carro(s) por apt.");
+
+
+        // Gerar condominio
+        condominio.gerarCondominio(
+            torres,
+            andaresPorTorre,
+            apartamentosPorAndar,
+            vagasParaCarro,
+            vagasParaMoto
+        );
+    }
+
+    //Funcão auxiliar para deixar a leitura do código mais limpa
+    private int setValorPadrao(int valorInserido, int valorPadrao, int condicao, String desc){
+            if(valorInserido < condicao) {
+                System.out.println("Valor inválido.");
+                System.out.println("Valor padrão configurado: " + valorPadrao + desc);
+
+                return valorPadrao;
+            }
+
+        return valorInserido;
     }
 
     public void cadastrarMorador(Condominio condominio) {
