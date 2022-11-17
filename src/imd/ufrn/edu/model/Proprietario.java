@@ -1,4 +1,7 @@
-package imd.ufrn.edu.domain;
+package imd.ufrn.edu.model;
+
+import imd.ufrn.edu.model.Apartamento;
+import imd.ufrn.edu.model.Pessoa;
 
 public class Proprietario extends Pessoa {
 	

@@ -1,7 +1,9 @@
 package imd.ufrn.edu.view;
 import imd.ufrn.edu.controller.Condominio;
+import imd.ufrn.edu.model.Proprietario;
+import imd.ufrn.edu.model.*;
 
-public class Example {
+public class Aplicacao {
     public static void main(String[] args) {
     	
     	Condominio metropole = new Condominio();
@@ -15,21 +17,19 @@ public class Example {
 
 		//Placeholder de Veiculo
 		Veiculo veiculo = new Veiculo();
-    	veiculo.setCorCarro("Preto");
-    	veiculo.setModeloCarro("Gol");
-    	veiculo.setPlacaDoCarro("NNR-8595");
-    	veiculo.setRegistroData(null);
+    	veiculo.setCor("Preto");
+    	veiculo.setModelo("Gol");
+    	veiculo.setPlaca("NNR-8595");
+    	veiculo.setDataDeRegistro(null);
 
 		//Placeholder de Vaga
 		Vaga vaga = new Vaga();
-    	vaga.setComprimento(500);
-    	vaga.setLargura(250);
-    	vaga.setLocal("100A");
+    	vaga.setId("1");
     	vaga.setVeiculo(veiculo);
 
 		//Placeholder de apartamento
 		Apartamento apto = new Apartamento();
-    	apto.setNumApartamento(100);
+    	apto.setNumero(100);
     	apto.setBloco("A");
     	((Proprietario)prop).setApto(apto);
     	apto.setTaxaCondominio(250.0);

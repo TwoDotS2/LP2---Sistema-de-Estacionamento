@@ -1,14 +1,15 @@
-package imd.ufrn.edu.model;
+package imd.ufrn.edu.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import imd.ufrn.edu.domain.Apartamento;
-import imd.ufrn.edu.domain.Morador;
+import imd.ufrn.edu.model.Apartamento;
+import imd.ufrn.edu.model.Pessoa;
+import imd.ufrn.edu.model.Vaga;
 
 public class Condominio {
 private List<Apartamento> apartamentos;
-private List<Morador> moradores;
+private List<Pessoa> moradores;
 	
 	public void cadastrarApartamento(Apartamento apto) {
 		if(apartamentos == null) {
@@ -21,14 +22,14 @@ private List<Morador> moradores;
 		return apartamentos;
 	}
 	
-	public void cadastrarMorador(Morador morador) {
+	public void cadastrarMorador(Pessoa morador) {
 		if(moradores == null) {
-			moradores = new ArrayList<Morador>();
+			moradores = new ArrayList<Pessoa>();
 		}
 		moradores.add(morador);
 	}
 	
-	public List<Morador> listarMoradores() {
+	public List<Pessoa> listarMoradores() {
 		return moradores;
 	}
 }

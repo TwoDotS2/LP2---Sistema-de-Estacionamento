@@ -1,10 +1,14 @@
 package imd.ufrn.edu.model;
 
+import java.time.LocalDateTime;
+
 public class Veiculo {
     private String placa;
     private String cor;
     private String modelo;
     private String marca;
+
+    private LocalDateTime dataDeRegistro;
 
     public void setPlaca(String placa) {
         this.placa = placa;
@@ -36,5 +40,13 @@ public class Veiculo {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public LocalDateTime getDataDeRegistro() {
+        return dataDeRegistro;
+    }
+
+    public void setDataDeRegistro(LocalDateTime dataDeRegistro) {
+        this.dataDeRegistro = dataDeRegistro;
     }
 }

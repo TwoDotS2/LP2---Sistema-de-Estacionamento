@@ -8,8 +8,6 @@ public class Pessoa {
     private String telefone;
     private LocalDate datanascimento;
 
-  
-
 	public Pessoa() {}
     
     public Pessoa(String nome, String cpf, String telefone) {
