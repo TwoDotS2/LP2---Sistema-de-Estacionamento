@@ -52,7 +52,10 @@ public class Pessoa {
 		this.datanascimento = LocalDate.of(ano, mes, dia);
 	}
 
-  	
-  	
-
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }

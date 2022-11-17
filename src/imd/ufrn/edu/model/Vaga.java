@@ -1,5 +1,7 @@
 package imd.ufrn.edu.model;
 
+import imd.ufrn.edu.model.Veiculo;
+
 import java.util.UUID;
 
 public class Vaga {
@@ -30,5 +32,14 @@ public class Vaga {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    @Override
+    public String toString() {
+        return "Vaga{" +
+                "numero=" + numero +
+                ", veiculo=" + veiculo +
+                ", complemento='" + complemento + '\'' +
+                '}';
     }
 }

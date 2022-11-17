@@ -1,4 +1,6 @@
-package imd.ufrn.edu.model;
+package imd.ufrn.edu.controller;
+
+import imd.ufrn.edu.model.Apartamento;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -53,5 +55,14 @@ public class Torre {
 
     public Map<Integer, Hashtable<Integer, Apartamento>> getTorre() {
         return torre;
+    }
+
+    @Override
+    public String toString() {
+        return "Torre{" +
+                "nome='" + nome + '\'' +
+                ", torre=" + torre.values().toString() +
+                ", andares=" + andares +
+                '}';
     }
 }

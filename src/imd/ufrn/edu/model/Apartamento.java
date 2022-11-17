@@ -1,5 +1,6 @@
 package imd.ufrn.edu.model;
 
+import imd.ufrn.edu.model.Vaga;
 
 import java.util.List;
 
@@ -92,4 +93,15 @@ public class Apartamento {
     public void setVagas(List<Vaga> vagas) {
         this.vagas = vagas;
     }
+
+	@Override
+	public String toString() {
+		return "Apartamento{" +
+				"numero=" + numero +
+				", bloco='" + bloco + '\'' +
+				", andar=" + andar +
+				", moradores=" + moradores.toString() +
+				", vagaEstacionamento=" + vagaEstacionamento.toString() +
+				'}';
+	}
 }

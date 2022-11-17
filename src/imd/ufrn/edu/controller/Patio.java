@@ -1,4 +1,6 @@
-package imd.ufrn.edu.model;
+package imd.ufrn.edu.controller;
+
+import imd.ufrn.edu.model.Vaga;
 
 import java.util.Hashtable;
 
@@ -23,4 +25,10 @@ public class Patio {
         return vaga;
     }
 
+    @Override
+    public String toString() {
+        return "Patio{" +
+                "vagas=" + vagas.values().toString() +
+                '}';
+    }
 }

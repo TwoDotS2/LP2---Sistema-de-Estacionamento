@@ -1,4 +1,4 @@
-package imd.ufrn.edu.domain;
+package imd.ufrn.edu.model;
 
 public class Morador {
 	

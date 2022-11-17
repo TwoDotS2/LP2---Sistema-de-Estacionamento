@@ -49,4 +49,15 @@ public class Veiculo {
     public void setDataDeRegistro(LocalDateTime dataDeRegistro) {
         this.dataDeRegistro = dataDeRegistro;
     }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", cor='" + cor + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", dataDeRegistro=" + dataDeRegistro +
+                '}';
+    }
 }
