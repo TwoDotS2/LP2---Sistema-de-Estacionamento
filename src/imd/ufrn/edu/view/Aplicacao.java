@@ -24,7 +24,7 @@ public class Aplicacao {
 
 		//Placeholder de Vaga
 		Vaga vaga = new Vaga();
-    	vaga.setId("1");
+    	vaga.setNumero(1);
     	vaga.setVeiculo(veiculo);
 
 		//Placeholder de apartamento

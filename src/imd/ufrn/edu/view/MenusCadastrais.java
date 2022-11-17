@@ -5,7 +5,9 @@ import imd.ufrn.edu.controller.Condominio;
 import java.util.Scanner;
 
 public class MenusCadastrais {
-    private Scanner scanner = new Scanner();
+    private Scanner scanner = new Scanner(System.in);
+
+    public MenusCadastrais() {}
 
     public void cabecalho(){
         System.out.println("-------------------------iEstac-------------------------------");
@@ -28,13 +30,18 @@ public class MenusCadastrais {
 
     //2- Tela inicial de criação de projeto de condomínio
     public void menuCriarProjetoDeCondominio(Condominio condominio){
-        short torres = 1;
-        short andaresPorTorre;
-        short apartamentosPorAndar;
-        short vagasParaCarro = 1;
-        short vagasParaMoto = 1;
-        short aux;
+        int torres = 1;
+        int andaresPorTorre;
+        int apartamentosPorAndar;
+        int vagasParaCarro = 1;
+        int vagasParaMoto = 1;
+        int totalDeVagasCarro; //Total de vagas do condominio para carros
+        int totalDeVagasMoto; //Total de vagas do condominio para motos
         boolean vagaMotoCarro = false; //Variavel para saber se há vagas separadas para moto e carro
+
+        //Variáveis para auxilicar para no tratamento de exceção
+        short aux; String str;
+
 
         System.out.println("Quantas torres tem o condomínio?");
             aux = scanner.nextShort();
@@ -59,10 +66,10 @@ public class MenusCadastrais {
                 System.out.println("Valor padrão configurado: 4 apartamentos");
             }
 
-        System.out.println("Há pátio separado para carros e motos? (S/N)”);
-            aux = scanner.next();
-            if (aux == "S") vagaMotoCarro = true;
-            else if (aux == "N") vagaMotoCarro = false;
+        System.out.println("Há pátio separado para carros e motos? (S/N)");
+            str = scanner.next();
+            if (str == "S") vagaMotoCarro = true;
+            else if (str == "N") vagaMotoCarro = false;
             else {
                 System.out.println("Exceção...s");
             }
@@ -83,15 +90,26 @@ public class MenusCadastrais {
                     System.out.println("Valor inválido.");
                     System.out.println("Valor padrão configurado: 1 vaga de carro por apt.");
                 }
-        } else{
+        } else {
             System.out.println("Quantas vagas há para carro (De 1 a quanto)?");
             aux = scanner.nextShort();
-            if (aux < 1){
+            if (aux < 1) {
                 vagasParaCarro = 1;
                 System.out.println("Valor inválido.");
                 System.out.println("Valor padrão configurado: 1 vaga de carro por apt.");
             }
         }
+
+    }
+
+    public void cadastrarMorador(Condominio condominio) {
+
+    }
+
+    public void cadastrarVeiculo(Condominio condominio) {
+
+    }
+    public void cadastrarVaga(Condominio condominio) {
 
     }
 
