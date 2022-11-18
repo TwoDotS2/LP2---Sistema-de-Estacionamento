@@ -12,18 +12,14 @@ public class Apartamento {
     private List<Pessoa> moradores; //Moradores do apartamento
     private List<Vaga> vagas;
 
-    //Construtor Vazio
-
-    private Proprietario prop;
     private Double taxaCondominio;
     private Vaga vagaEstacionamento;
     
 
     public Apartamento() {}
     
-	public Apartamento(int numApartamento, String bloco, Proprietario prop, Double taxaCondominio, Vaga vagaEstacionamento) {
+	public Apartamento(int numApartamento, String bloco, Double taxaCondominio, Vaga vagaEstacionamento) {
 		this.numero = numApartamento;
-		this.prop = prop;
 		this.taxaCondominio = taxaCondominio;
 		this.vagaEstacionamento = vagaEstacionamento;
 	}
@@ -45,16 +41,12 @@ public class Apartamento {
         return andar;
     }
 
-	public Proprietario getProp() {
-		return prop;
-	}
+
     public void setAndar(int andar) {
         this.andar = andar;
     }
 
-	public void setProp(Proprietario prop) {
-		this.prop = prop;
-	}
+
     public List<Pessoa> getMoradores() {
         return moradores;
     }

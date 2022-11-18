@@ -15,79 +15,114 @@ public class MenusCadastrais {
     public MenusCadastrais() {}
 
     public void cabecalho(){
-        System.out.println("-------------------------iEstac-------------------------------");
-        System.out.println("---------Sistema de Gestão de Vagas Condominiais--------------");
+        System.out.println("+------------------------iEstac-----------------------------+");
+        System.out.println("|-------Sistema de Gestão de Vagas Condominiais-------------|");
     }
 
     public void rodape(){
-        System.out.println("--------****************************************--------------");
-        System.out.println("--------------------------------------------------------------");
+        System.out.println("|------********************************************---------|");
+        System.out.println("+-----------------------------------------------------------+");
         System.out.println("\n\n");
     }
 
+    public void gerenciadorDeMenu(Condominio condominio){
+        int op;
+        System.out.println("1- Visulizar condominio");
+        System.out.println("2- Criar projeto de condominio");
+        op = scanner.nextInt();
+
+        switch (op){
+            case 1:
+                break;
+            case 2:
+                System.out.println("---------------Criar projeto de condominio-----------------");
+                System.out.println("1- Inserir valores");
+                System.out.println("2- Criar projeto com valor padrão");
+                op = scanner.nextInt();
+
+                switch (op){
+
+
+                    case 1:
+                        System.out.println("--------Criar projeto de condominio >> Inserir valores------------");
+                        criarProjetoCondominio(condominio);
+
+                        //Exibir o que foi criado
+                        exibirPatio(condominio);
+                        exibirApartamentos(condominio);
+
+                        break;
+                    case 2:
+                        System.out.println("-----Criar projeto de condominio >> Criar projeto com valor padrão----");
+                        criarProjetoValorPadrao(condominio);
+
+                        //Exibir o que foi criado
+                        exibirPatio(condominio);
+                        exibirApartamentos(condominio);
+
+                        break;
+                }
+
+                break;
+            default:
+                System.out.println("Opção inválida!");
+        }
+
+
+    }
+
     //2- Tela inicial de criação de projeto de condomínio
-    public void menuCriarProjetoDeCondominio(Condominio condominio) {
+    public void criarProjetoCondominio(Condominio condominio) {
         int torres = 1;
         int andaresPorTorre = 5;
         int apartamentosPorAndar = 4;
-        int vagasParaCarro = 1;
-        int vagasParaMoto = 1;
-        boolean vagaMotoCarro = false; //Variavel para saber se há vagas separadas para moto e carro
+        int vagasPorApt = 1;
 
         //Variáveis para auxilicar para no tratamento de exceção
-        short aux;
+        int aux;
         String str;
 
-        //Exibir cabeçalho
-        cabecalho();
-
         System.out.println("Quantas torres tem o condomínio?");
-            aux = scanner.nextShort();
+            aux = scanner.nextInt();
             torres = setValorPadrao(aux, torres, 1, " torre(s).");
 
-
         System.out.println("Quantos andares tem cada torre?");
-            aux = scanner.nextShort();
+            aux = scanner.nextInt();
             andaresPorTorre = setValorPadrao(aux, andaresPorTorre, 1, " andar(es).");
 
-
         System.out.println("Quantos apartamentos tem por andar?");
-            aux = scanner.nextShort();
+            aux = scanner.nextInt();
             apartamentosPorAndar = setValorPadrao(aux, apartamentosPorAndar, 1, " apartamento(s).");
 
+        System.out.println("Quantas vagas há por apt.?");
+            aux = scanner.nextInt();
+        vagasPorApt = setValorPadrao(aux, vagasPorApt, 1, " vaga(s) de carro(s) por apt.");
 
-        System.out.println("Há pátio separado para carros e motos? (S/N)");
-            scanner.nextLine();
-            str = scanner.next();
-
-            if (str.equals("S")) vagaMotoCarro = true;
-            else if (str.equals("N")) vagaMotoCarro = false;
-            else {
-                System.out.println("Exceção... " + str);
-            }
-
-        if (vagaMotoCarro) {
-            System.out.println("Quantas vagas há para moto por apt.?");
-                aux = scanner.nextShort();
-                vagasParaMoto = setValorPadrao(aux, vagasParaMoto, 0, " vaga(s) de moto por apt.");
-        }
-
-        System.out.println("Quantas vagas há para carro por apt.?");
-            aux = scanner.nextShort();
-            vagasParaCarro = setValorPadrao(aux, vagasParaCarro, 1, " vaga(s) de carro(s) por apt.");
 
         // Gerar condominio
         condominio.gerarCondominio(
             torres,
             andaresPorTorre,
             apartamentosPorAndar,
-            vagasParaCarro,
-            vagasParaMoto
+            vagasPorApt
         );
 
-        rodape();
     }
 
+    public void criarProjetoValorPadrao(Condominio condominio){
+        int torres = 1;
+        int andaresPorTorre = 5;
+        int apartamentosPorAndar = 4;
+        int vagasPorApt = 1;
+
+        // Gerar condominio
+        condominio.gerarCondominio(
+                torres,
+                andaresPorTorre,
+                apartamentosPorAndar,
+                vagasPorApt
+        );
+    }
     //Funcão auxiliar para deixar a leitura do código mais limpa
     private int setValorPadrao(int valorInserido, int valorPadrao, int condicao, String desc){
             if(valorInserido < condicao) {
@@ -100,31 +135,41 @@ public class MenusCadastrais {
         return valorInserido;
     }
 
-    public void exibirPatioCarros(Condominio condominio){
-        Hashtable<Integer, Vaga> vagasDoPatio = condominio.getPatioCarros().getVagas();
+    public void exibirPatio(Condominio condominio){
+        Hashtable<Integer, Vaga> vagasDoPatio = condominio.getPatio();
 
-        cabecalho();
-        System.out.println("\nVagas do patio:");
+        System.out.println("\n Vagas do patio:");
 
         for (Vaga vaga: vagasDoPatio.values()) {
-            System.out.println(vaga.toString());
+            System.out.println("\t" + vaga.toString());
         }
 
-        rodape();
     }
 
-    public void exibirTorres(Condominio condominio){
-
+    public void exibirApartamentos(Condominio condominio){
         Hashtable<String, Torre> torres = condominio.getTorres();
-        System.out.println("Todos os apartamentos:\n");
+        int qtdTorres = torres.size() + 'A';
+        int aptPorAndar;
 
+        System.out.println("\t Todos os apartamentos:\n");
 
-        for (int i = 1; i <= ) {
-            System.out.println();
+        //Printar todos os apartamentos por andar
+        for (int i = 'A'; i < qtdTorres; i++) {
+            aptPorAndar = torres
+                    .get(Character.toString(i))
+                    .getApartamentosPorAndar();
+
+            System.out.println("Torre " + Character.toString(i) + ":\n");
+            for (int j = 0; j < aptPorAndar; j++) {
+                System.out.println(
+                torres
+                    .get(Character.toString(i))
+                    .getTorre()
+                    .get(j)
+                    .toString()
+                );
+            }
         }
-
-        rodape();
-
     }
 
 

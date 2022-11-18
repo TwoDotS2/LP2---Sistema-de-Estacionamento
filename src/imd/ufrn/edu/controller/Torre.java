@@ -8,6 +8,8 @@ public class Torre {
     private String nome;
     private Hashtable<Integer, Apartamento> torre;
     private int andares;
+
+    private int apartamentosPorAndar;
     public Torre() {}
 
     public void gerarTorre(int andares, int apartamentosPorAndar){
@@ -46,8 +48,23 @@ public class Torre {
         this.andares = andares;
     }
 
-    public Hashtable<Integer, Apartamento> getAndar() {
+    public Hashtable<Integer, Apartamento> getTorre() {
         return torre;
+    }
+    public Apartamento getAndar(Integer andar) {
+        return torre.get(andar);
+    }
+
+    public void setAndares(int andares) {
+        this.andares = andares;
+    }
+
+    public int getApartamentosPorAndar() {
+        return apartamentosPorAndar;
+    }
+
+    public void setApartamentosPorAndar(int apartamentosPorAndar) {
+        this.apartamentosPorAndar = apartamentosPorAndar;
     }
 
     @Override

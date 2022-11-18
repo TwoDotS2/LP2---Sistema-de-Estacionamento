@@ -10,14 +10,14 @@ public class Patio {
 
     public Patio(){}
 
-    public Hashtable<Integer, Vaga> getVagas() {
+    public Hashtable<Integer, Vaga> getPatio() {
         return vagas;
     }
 
     public void gerarPatio(int numeroTotalDeVagas){
         vagas = new Hashtable<Integer, Vaga>(numeroTotalDeVagas);
 
-        for (int i = 1; i < numeroTotalDeVagas; i++) {
+        for (int i = 1; i <= numeroTotalDeVagas; i++) {
             vagas.put(i, gerarVaga(i));
         }
     }

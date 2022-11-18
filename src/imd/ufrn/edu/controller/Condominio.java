@@ -5,14 +5,12 @@ import java.util.Hashtable;
 import java.util.List;
 
 import imd.ufrn.edu.model.Pessoa;
+import imd.ufrn.edu.model.Vaga;
 
 public class Condominio {
 	private Hashtable<String, Torre>  torres;
 	private List<Pessoa> moradores;
-
-	private Patio patioCarros;
-
-	private Patio patioMotos;
+	private Hashtable<Integer, Vaga> patio;
 
 	public void cadastrarMorador(Pessoa morador) {
 		if(moradores == null) {
@@ -31,43 +29,40 @@ public class Condominio {
 	 * @param quantidadeDeTorres quantas torres tem o condomínio
 	 * @param andaresPorTorre quantos andares tem cada torre
 	 * @param apartamentosPorAndar quantos apartamentos cada torre tem por andar
-	 * @param vagasParaCarro quantas vagas de carro há por apartamento
-	 * @param vagasParaMoto quantas vagas de moto há por apartamento
+	 * @param vagasPorApt vagas por apartamento
 	 */
-	public void gerarCondominio(int quantidadeDeTorres, int andaresPorTorre, int apartamentosPorAndar, int vagasParaCarro, int vagasParaMoto){
-		//Gerar torres do projeto
-		torres = new Hashtable<String, Torre>(quantidadeDeTorres);
-		Torre placeHolderTorre;
+	public void gerarCondominio(int quantidadeDeTorres, int andaresPorTorre, int apartamentosPorAndar, int vagasPorApt){
+		int totalDeVagas = quantidadeDeTorres * andaresPorTorre * apartamentosPorAndar * vagasPorApt;
+		Torre auxTorre; //Torre auxiliar para geração do condomino
+		Patio auxPatio = new Patio();	//Patio auxiliar para geração do condomino
+		String str;
 
+		torres = new Hashtable<String, Torre>(quantidadeDeTorres);
+
+		//Faz um laço para a quantidade de torres
 		for (int i = 0; i < quantidadeDeTorres; i++) {
-			placeHolderTorre = new Torre();
+			//Torres enumeradas por letras
+			str = Character.toString('A' + i);
+
+			auxTorre = new Torre();
+
 			//Gera uma nova torre
-			placeHolderTorre.gerarTorre( andaresPorTorre, apartamentosPorAndar );
+			auxTorre.gerarTorre( andaresPorTorre, apartamentosPorAndar );
+
+			//Atribuir valores à torre
+			auxTorre.setNome(str);
+			auxTorre.setAndares(andaresPorTorre);
+			auxTorre.setApartamentosPorAndar(apartamentosPorAndar);
 
 			//Adiciona nas torres do projeto
-			torres.put(("A" + i), placeHolderTorre);
+			torres.put(str, auxTorre);
 		}
 
-		int numeroTotaldeVagas =  quantidadeDeTorres * andaresPorTorre * apartamentosPorAndar;
+		//Gerar patio
+		auxPatio.gerarPatio(totalDeVagas);
 
-		//Gerar patio de carros
-		patioCarros = new Patio();
-		patioCarros.gerarPatio(numeroTotaldeVagas * vagasParaCarro);
+		patio = auxPatio.getPatio();
 
-		//Gerar patio de motos
-		if(vagasParaMoto != 0){
-			patioMotos = new Patio();
-			patioMotos.gerarPatio(numeroTotaldeVagas * vagasParaMoto);
-		}
-
-	}
-
-	public Patio getPatioCarros() {
-		return patioCarros;
-	}
-
-	public Patio getPatioMotos() {
-		return patioMotos;
 	}
 
 	public Hashtable<String, Torre> getTorres() {
@@ -77,4 +72,7 @@ public class Condominio {
 		return torres.get(nomeDaTorre);
 	}
 
+	public Hashtable<Integer, Vaga> getPatio() {
+		return patio;
+	}
 }

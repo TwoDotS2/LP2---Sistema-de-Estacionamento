@@ -30,12 +30,9 @@ public class Aplicacao {
 			apto.setVagaEstacionamento(vaga);
 		}
 
-		menu.menuCriarProjetoDeCondominio(metropole);
-
-		menu.exibirPatioCarros(metropole);
-
-		menu.exibirTorres(metropole);
-    	
+		while (true) {
+			menu.gerenciadorDeMenu(metropole);
+		}
     }
 }
 
